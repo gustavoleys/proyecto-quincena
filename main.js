@@ -43,16 +43,11 @@ const totalQuincena = [H1H16, H2H17, H3H18, H4H19, H5H20, H6H21, H7H22, H8H23, H
 
 for (let i = 0; i < totalQuincena.length; i++){
 
-    /* let dia = prompt("Ingrese el dia de la semana correspondiente (lunes, martes, miercoles, jueves, viernes, sabado o domingo)");
+    let dia = prompt("Ingrese el dia de la semana correspondiente (lunes, martes, miercoles, jueves, viernes, sabado o domingo)");
     let hora_ingreso = prompt("Hora de ingreso del personal (formato 24hs)");
     let hora_salida = prompt("Hora de egreso del personal (formato 24hs)");
-    let horas_totales = hora_salida - hora_ingreso;*/
-    
-    let dia = "miercoles";
-    let hora_ingreso = 7;
-    let hora_salida = 16;
     let horas_totales = hora_salida - hora_ingreso;
-    
+        
     parseFloat(hora_ingreso);
     parseFloat(hora_salida);
     parseFloat(horas_totales);
