@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Liquidación de Quincenas</title>
+</head>
+<body>
+<!--Inicio NAV -->
+<div class="div_nav">
+<nav class="nav">
+    <ul class="lista">
+        <li class="lista_item lista_item_click">
+            <div class="lista_boton lista_boton_click">
+                <a href="#" class="nav_link">Personal</a>
+                <img src="../assets/arrow.svg" class="lista_arrow">
+            </div>
+            <ul class="lista_show">
+                <li class="lista_inside">
+                    <a href="../pages/alta-personal.html" class="nav_link nav_link_inside">Alta</a>
+                </li>
+                <li class="lista_inside">
+                    <a href="../pages/modificar-personal.html" class="nav_link nav_link_inside">Modificación o baja</a>
+                </li>
+            </ul>
+        <li class="lista_item lista_item_click">
+            <div class="lista_boton lista_boton_click">
+                <a href="#" class="nav_link">Carga Horas</a>
+                <img src="../assets/arrow.svg" class="lista_arrow">
+            </div>
+            <ul class="lista_show">
+                <li class="lista_inside">
+                    <a href="../pages/carga-masiva.html" class="nav_link nav_link_inside">Carga Horas Masivas</a>
+                </li>
+
+                <li class="lista_inside">
+                    <a href="../pages/carga-manual.html" class="nav_link nav_link_inside">Carga Horas Manuales</a>
+                </li>
+            </ul>
+        </li>
+        <li class="lista_item">
+            <div class="lista_boton">
+                <a href="#" class="nav_link">Contacto</a>
+            </div>
+        </li>
+
+    </ul>
+</nav>
+</div>
+<!--Fin NAV -->
+
+<div class="div_buscador">
+    <form action="" name="form_buscar" id="form_buscar">
+        <div class="div_buscar" >
+            <label for="buscar" class="label_alta" >Buscar</label>
+            <input class="input_alta" type="search" id="buscar" value="">
+        
+        </div>
+        
+            <select class="select_empleados" name="selectEmpleados" id="selectEmpleados" multiple>
+            </select>
+    </form>
+</div>
+
+
+<div class="div_general_modificar">
+    <!--inicio CERRAR-->
+    <div class="cerrar">
+        <a class="cerrar_x" href="../index.html">x</a>
+    </div>
+    <!--fin CERRAR-->
+    <!--inicio formulario-->
+    <div class="div_form_general">
+        <form action="">
+            <div class="div_form_alta">
+                <label class="label_legajo" for="legajo">Legajo:</label>
+                <input class="input_legajo" type="text" id="legajo" name="legajo">
+                <label class="label_legajo" for="fecha_alta">Fecha Alta:</label>
+                <input class="input_legajo" type="date" id="fecha_alta" name="fecha_alta">
+            </div>
+            <div class="div_form_alta">
+                <label class="label_alta" for="nombre">Nombre:</label>
+                <input class="input_alta" type="text" id="nombre" name="nombre">
+            </div>
+            <div class="div_form_alta">
+                <label class="label_alta" for="apellido">Apellido:</label>
+                <input class="input_alta" type="text" id="apellido" name="apellido">
+            </div>
+            <div class="div_form_alta">
+                <label class="label_alta" for="cuil">CUIL:</label>
+                <input class="input_alta" type="text" id="cuil" name="cuil">
+            </div>
+            <div class="div_form_alta">
+                <label class="label_alta" for="cuil">Dirección:</label>
+                <input class="input_alta" type="text" id="direccion" name="direccion">
+            </div>
+            <div class="div_form_alta">
+                <label class="label_alta" for="cuil">Categoria:</label>
+                <input class="input_alta" list="categoria">
+                <datalist id="categoria">
+                    <option value="Oficial Esp">
+                    <option value="Oficial">
+                    <option value="1/2 Oficial">
+                    <option value="Ayudante">
+                </datalist>
+            </div>
+            <div class="div_form_boton">
+                <input class="boton_form" type="submit" id="btn_guardar" value="Guardar">
+                <input class="boton_form" type="submit" id="cancelar" value="Cancelar">
+            </div>
+        </form>
+    </div>
+    <!--fin formulario-->
+</div>
+
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/modificar-empleados.js"></script>
+</body>
+</html>

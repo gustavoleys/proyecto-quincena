@@ -1,0 +1,106 @@
+
+.div_general{
+    background-color: $color-fondo-1;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div_buscador{
+    background-color: $color-fondo-1;
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.div_buscar{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: start;
+}
+.select_empleados{
+width: 100%;
+height: auto;
+margin: 10% 2%;
+background-color: $color-fondo-1;
+border: none;
+color: $color-fonts-1;
+font-size: $font-navbar;
+font-size: large;
+list-style: none;
+list-style-type: none;
+
+}
+.div_general_modificar{
+    @extend .div_general;
+    width: 60%;
+}
+.div_form_general{
+width: 100%;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-content: center;
+justify-content: center;
+}
+
+form{
+    width: 100%;
+    }
+
+.div_form_alta{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+.label_alta{
+width: 20%;
+text-align: end;
+margin: 2%;
+color: $color-fonts-1;
+font-size: $font-navbar;
+font-size: large;
+}
+.input_alta{
+width: 60%;
+font-family: $font-navbar;
+color: $color-fonts-1;
+font-size: large;
+border: none;
+background-color:$color-fondo-1;
+border-bottom: 1px solid $color-fonts-1;
+}
+.label_legajo{
+    @extend .label_alta;
+    justify-items: flex-end;
+    width: 20%;
+}
+.input_legajo{
+    @extend .input_alta;
+    width: 15%;
+}
+.div_form_boton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.boton_form{
+background-color: $color-fondo-1;
+font-family: $font-navbar;
+color: $color-fonts-1;
+font-size: larger;
+margin: 3% 0.3%;
+padding: 0.5% 3%;
+border-radius: 1%;
+border: 1px solid $color-fonts-1;
+
+&:hover{
+    background-color: rgb(105, 104, 104);
+}
+}

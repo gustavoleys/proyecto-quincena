@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+body {
+  background-color: rgb(50, 50, 50);
+  display: flex;
+  flex-direction: row;
+}
+
+.cerrar {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: end;
+}
+
+.cerrar_x {
+  font-size: large;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  margin: 2%;
+}
+.cerrar_x:hover {
+  color: black;
+}
+
+h1, h3 {
+  color: rgb(76, 91, 122);
+  font-family: "Calibri";
+  font-weight: bold;
+  text-align: center;
+  font-size: 60px;
+  margin: 1%;
+}
+
+h3 {
+  font-family: "Calibri";
+  font-size: 25px;
+  margin: 2%;
+}
+
+.p-white, .p-black {
+  margin: 0;
+  font-weight: 2;
+  text-align: justify;
+  font-size: 15px;
+  color: rgb(255, 255, 255);
+}
+
+.p-black {
+  color: rgb(0, 0, 0);
+}
+
+@media only screen and (max-width: 400px) {
+  h1, h3 {
+    color: rgb(76, 91, 122);
+    font-family: "Calibri";
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    margin: "Calibri";
+  }
+  h3 {
+    font-family: "Calibri";
+    font-size: 15px;
+    margin: 0%;
+  }
+  .p-white, .p-black {
+    margin: 0;
+    font-weight: 2;
+    text-align: justify;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+  }
+  .p-black {
+    color: rgb(0, 0, 0);
+  }
+}
+.div-titulo {
+  margin: 2%;
+}
+
+.img-pages {
+  width: 100%;
+}
+
+.label {
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.input {
+  margin: 0;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.textarea {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.button {
+  width: 20%;
+  font-size: 100%;
+  font-weight: lighter;
+  color: rgb(163, 163, 165);
+  padding: 1%;
+  border: 1px solid rgb(163, 163, 165);
+  background-color: black;
+}
+.button:hover {
+  border: 1px solid rgb(163, 163, 165);
+  background-color: yellow;
+  box-shadow: 0 0 5px black, 0 0 10px black;
+}
+
+.row-cv {
+  align-items: center;
+  justify-items: center;
+}
+
+.col-link-cv {
+  text-align: center;
+  text-justify: center;
+}
+
+.div-link-cv {
+  margin: 5%;
+  padding: 3%;
+  border: 1px solid rgb(163, 163, 165);
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+.div-link-cv:hover {
+  border: 1px solid rgb(163, 163, 165);
+  background-color: yellow;
+  text-decoration-color: black;
+  box-shadow: 0 0 5px black, 0 0 10px black;
+}
+
+.link-cv {
+  font-size: 100%;
+  font-weight: lighter;
+  text-decoration: none;
+  color: rgb(163, 163, 165);
+}
+.link-cv:hover {
+  color: black;
+}
+
+@media only screen and (max-width: 500px) {
+  .link-cv {
+    font-size: 70%;
+  }
+}
+.nav {
+  width: 100%;
+  height: 100%;
+}
+
+.div_nav {
+  width: 20%;
+  height: 100vh;
+}
+
+.lista {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 30px 30px 30px 30px;
+  background: rgb(85, 85, 85);
+}
+
+.lista_item {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+.lista_item_click {
+  cursor: pointer;
+}
+
+.nav_link {
+  color: rgb(255, 255, 255);
+  display: block;
+  padding: 15px 0;
+  text-decoration: none;
+  font-family: "Calibri";
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.nav_link_inside {
+  border-radius: 6px;
+  padding-left: 20px;
+  text-align: left;
+}
+.nav_link_inside:hover {
+  background: rgb(95, 95, 95);
+}
+
+.lista_boton {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 70%;
+}
+
+.arrow .lista_arrow {
+  transform: rotate(90deg);
+}
+
+.lista_arrow {
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+
+.lista_show {
+  width: 80%;
+  border-left: 2px solid #303440;
+  list-style: none;
+  transition: height 0.4s;
+  height: 0;
+}
+
+.div_general, .div_general_modificar {
+  background-color: rgb(50, 50, 50);
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div_buscador {
+  background-color: rgb(50, 50, 50);
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.div_buscar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.select_empleados {
+  width: 100%;
+  height: auto;
+  margin: 10% 2%;
+  background-color: rgb(50, 50, 50);
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: "Calibri";
+  font-size: large;
+  list-style: none;
+  list-style-type: none;
+}
+
+.div_general_modificar {
+  width: 60%;
+}
+
+.div_form_general {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+form {
+  width: 100%;
+}
+
+.div_form_alta {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.label_alta, .label_legajo {
+  width: 20%;
+  text-align: end;
+  margin: 2%;
+  color: rgb(255, 255, 255);
+  font-size: "Calibri";
+  font-size: large;
+}
+
+.input_alta, .input_legajo {
+  width: 60%;
+  font-family: "Calibri";
+  color: rgb(255, 255, 255);
+  font-size: large;
+  border: none;
+  background-color: rgb(50, 50, 50);
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.label_legajo {
+  justify-items: flex-end;
+  width: 20%;
+}
+
+.input_legajo {
+  width: 15%;
+}
+
+.div_form_boton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.boton_form {
+  background-color: rgb(50, 50, 50);
+  font-family: "Calibri";
+  color: rgb(255, 255, 255);
+  font-size: larger;
+  margin: 3% 0.3%;
+  padding: 0.5% 3%;
+  border-radius: 1%;
+  border: 1px solid rgb(255, 255, 255);
+}
+.boton_form:hover {
+  background-color: rgb(105, 104, 104);
+}
+
+/*# sourceMappingURL=main.css.map */
