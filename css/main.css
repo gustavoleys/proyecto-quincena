@@ -161,6 +161,11 @@ h3 {
 }
 
 .div_nav {
+  width: 2%;
+  height: 100vh;
+}
+
+.div_nav_in {
   width: 20%;
   height: 100vh;
 }
@@ -235,6 +240,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 3%;
 }
 
 .div_buscador {

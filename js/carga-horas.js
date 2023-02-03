@@ -13,36 +13,41 @@ let horas_100 = 0;
 let horas_nocturnas = 0;
 // futuro array
 let horasGuardadas;
+
 parseFloat(horas_totales);
 parseFloat(horas_normales);
 parseFloat(horas_50);
 parseFloat(horas_100);
 parseFloat(horas_nocturnas);
 
-//variable de fechas
-var DateTime = luxon.DateTime;
-
 //variables de DOM
 const selectEmpleados = document.querySelector("#selectEmpleados"),
 form_parte = document.querySelector("#form_parte"),
 fecha_parte = document.querySelector("#fecha_parte"),
 horaIngreso = document.querySelector("#hora_ingreso"),
-horaSalida = document.querySelector("#hora_salida"),
-tBody = document.querySelector("#tbody");
+horaSalida = document.querySelector("#hora_salida");
 
 // IF TRAE EMPLEADOS DEL LOCALSTORAGE
 if (localStorage.getItem("empleados")){
     alta_empleados = JSON.parse(localStorage.getItem("empleados"));
 } else{
-    alert("Cargar empleados")
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Dar de alta empleados',
+        footer: '<a href="../pages/alta-personal.html">Desea dar de alta un empleado?</a>'
+    });
 }
 if (localStorage.getItem("horas_empleados")){
     horasGuardadas = JSON.parse(localStorage.getItem("horas_empleados"));
 } else{
     horasGuardadas = [];
 }
-//FUNCIONES
 
+//variable de fechas
+
+
+//FUNCIONES
 //FUNCION CREAR OPTION
 function crearhtml(arr){
     selectEmpleados.innerHTML = "";
@@ -52,13 +57,15 @@ for (const item of arr) {
     selectEmpleados.innerHTML += html;
 }
 }
-
 // FUNCION CONSTRUCTORA
-function totalHoras(legajoEmpleado, apellidoEmpleado, nombreEmpleado, fecha_parte, horaingreso, horasalida, hsnor, hs50, hs100, hsnornoc){
+function totalHoras(legajoEmpleado, apellidoEmpleado, nombreEmpleado, fecha_parte, milisegundos, 
+    horaingreso, horasalida, hsnor, hs50, hs100, hsnornoc){
+    
     this.legajoEmpleado = legajoEmpleado;
     this.apellidoEmpleado = apellidoEmpleado;
     this.nombreEmpleado = nombreEmpleado;
     this.fecha_parte = fecha_parte;
+    this.milisegundos = milisegundos;
     this.horaingreso = horaingreso;
     this.horasalida = horasalida;
     this.hsnor = hsnor;
@@ -67,34 +74,16 @@ function totalHoras(legajoEmpleado, apellidoEmpleado, nombreEmpleado, fecha_part
     this.hsnornoc = hsnornoc;
 }
 
-    //funcion guarda empleados
+//funcion guarda empleados
 function guardar_horas(elemento){
     return horasGuardadas.push(elemento);
 }
+
 //funcion guarda LS
 function guardarLS(arr){
     return localStorage.setItem('horas_empleados', JSON.stringify(arr));
 }
-// funcion de tabla
-function crearTabla(arr){
-    tBody.innerHTML = "";
-    let html = "";
-    for (const item of arr){
-    html = `<tr>
-    <td>${item.legajoEmpleado}</td>
-    <td>${item.nombreEmpleado}</td>
-    <td>${item.apellidoEmpleado}</td>
-    <td>${item.fecha_parte}</td>
-    <td>${item.horaingreso}</td>
-    <td>${item.horasalida}</td>
-    <td>${item.hsnor}</td>
-    <td>${item.hs50}</td>
-    <td>${item.hs100}</td>
-    <td>${item.hsnornoc}</td>
-    </tr>`;
-    tBody.innerHTML += html;
-    }
-}
+
 //funcion de calculos lunes a jueves
 function semana() {
     // IF DIAS DE SEMANA
@@ -160,26 +149,42 @@ function domingo() {
     horas_100 = horas_totales - horas_nocturnas;
 }
 }
-//FUNCION BUSCAR
-function filtrarPorLegajo(filtro){
-    return horasGuardadas.filter((el)=>{
-        return el.legajoEmpleado == filtro
-    })
-}
+
 //EVENTO CARGA SELECT
 window.onload = crearhtml(alta_empleados);
-window.onload = crearTabla(horasGuardadas);
+
 //EVENTO CALCULO DE HORAS
 form_parte.addEventListener('submit', (e)=>{
     e.preventDefault();
-    const fecha = new Date(fecha_parte.value);
-    let dia = fecha.getDay();
+
+    const DateTime = luxon.DateTime;
+    let fecha = fecha_parte.value.toLocaleString(DateTime.DATE_SHORT);
+    let dates = document.querySelectorAll('input[type="date"]');
+
+    let bloqueoMin = DateTime.now().plus({months: -6}).toFormat("yyyy-MM-dd");
+    let bloqueoMax = DateTime.now().plus({ days: 1 }).toFormat("yyyy-MM-dd");
+    
+    console.log(fecha);
+    console.log(bloqueoMin);
+    console.log(bloqueoMax);
+
+    dates.forEach((element) => {
+        element.setAttribute("min", bloqueoMin);
+        element.setAttribute("max", bloqueoMax);
+    });
+    
+    const fechaA = new Date(fecha_parte.value);
+    let dia = fechaA.getDay();
+    let milisegundos = fechaA.getTime();
+
     hora_ingreso = horaIngreso.value;
     hora_salida = horaSalida.value;
     horas_totales = hora_salida - hora_ingreso;
 
-/* GETDAY: DOMINGO = 0 - LUNES = 1 - MARTES = 2 - MIERCOLES = 3 - 
+
+/*GETDAY: DOMINGO = 0 - LUNES = 1 - MARTES = 2 - MIERCOLES = 3 - 
 JUEVES = 4 - VIERNES = 5 SABADO = 6 */
+
 if (dia == 0 || dia == 1 || dia == 2 || dia == 3 ){
     semana();
 } else if (dia == 4) {
@@ -194,19 +199,10 @@ let legajoEmpleado = alta_empleados[select].legajo;
 let apellidoEmpleado = alta_empleados[select].apellido;
 let nombreEmpleado = alta_empleados[select].nombre;
 
-const nuevo_registro = new totalHoras(legajoEmpleado, apellidoEmpleado, nombreEmpleado, fecha, 
-    hora_ingreso, hora_salida, horas_normales, horas_50, horas_100, horas_nocturnas);
+const nuevo_registro = new totalHoras(legajoEmpleado, apellidoEmpleado, nombreEmpleado, fecha, milisegundos,
+hora_ingreso, hora_salida, horas_normales, horas_50, horas_100, horas_nocturnas);
 
 guardar_horas(nuevo_registro);
 guardarLS(horasGuardadas);
 form_parte.reset();
-crearTabla(horasGuardadas);
-
-})
-selectEmpleados.addEventListener("input", ()=>{
-const selectLegajo = selectEmpleados.selectedIndex + 1;
-console.log(selectLegajo);
-const filtrarTabla = filtrarPorLegajo(selectLegajo);
-console.log(filtrarTabla);
-crearTabla(filtrarTabla);
 })

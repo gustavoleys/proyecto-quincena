@@ -34,20 +34,14 @@
             </div>
             <ul class="lista_show">
                 <li class="lista_inside">
-                    <a href="../pages/carga-masiva.html" class="nav_link nav_link_inside">Carga Horas Masivas</a>
+                    <a href="../pages/carga-masiva.html" class="nav_link nav_link_inside">Cargar Horas</a>
                 </li>
 
                 <li class="lista_inside">
-                    <a href="../pages/carga-manual.html" class="nav_link nav_link_inside">Carga Horas Manuales</a>
+                    <a href="../pages/filtro-horas.html" class="nav_link nav_link_inside">Ver Horas</a>
                 </li>
             </ul>
         </li>
-        <li class="lista_item">
-            <div class="lista_boton">
-                <a href="#" class="nav_link">Contacto</a>
-            </div>
-        </li>
-
     </ul>
 </nav>
 </div>
@@ -56,7 +50,7 @@
 <div class="div_buscador">
     <form action="" name="form_buscar" id="form_buscar">
         <div class="div_buscar" >
-            <label for="buscar" class="label_alta" >Buscar</label>
+            <label for="buscar" class="label_alta" >Buscar:</label>
             <input class="input_alta" type="search" id="buscar" value="">
         
         </div>
@@ -67,7 +61,7 @@
 </div>
 
 
-<div class="div_general_modificar">
+<div class="div_general">
     <!--inicio CERRAR-->
     <div class="cerrar">
         <a class="cerrar_x" href="../index.html">x</a>
@@ -75,7 +69,7 @@
     <!--fin CERRAR-->
     <!--inicio formulario-->
     <div class="div_form_general">
-        <form action="">
+        <form action=""name="form_modif" id="form_modif">
             <div class="div_form_alta">
                 <label class="label_legajo" for="legajo">Legajo:</label>
                 <input class="input_legajo" type="text" id="legajo" name="legajo">
@@ -99,13 +93,21 @@
                 <input class="input_alta" type="text" id="direccion" name="direccion">
             </div>
             <div class="div_form_alta">
-                <label class="label_alta" for="cuil">Categoria:</label>
-                <input class="input_alta" list="categoria">
+                <label class="label_alta" for="categoria">Categoria:</label>
+                <input class="input_alta" list="categoria" id="listcategoria">
                 <datalist id="categoria">
                     <option value="Oficial Esp">
                     <option value="Oficial">
                     <option value="1/2 Oficial">
                     <option value="Ayudante">
+                </datalist>
+            </div>
+            <div class="div_form_alta">
+                <label class="label_alta" for="baja">Baja:</label>
+                <input class="input_alta" list="listBaja" id="baja">
+                <datalist id="listBaja">
+                    <option value="Si">
+                    <option value="No">
                 </datalist>
             </div>
             <div class="div_form_boton">
@@ -120,6 +122,7 @@
 
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/navbar.js"></script>
     <script src="../js/modificar-empleados.js"></script>
 </body>

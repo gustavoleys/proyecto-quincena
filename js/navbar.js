@@ -15,3 +15,20 @@ listElements.forEach(listElement => {
 
     })
 });
+
+let abrirMenu = document.querySelector('.div_nav');
+
+abrirMenu.addEventListener("mouseover", ()=>{
+
+    document.querySelector('.div_nav').style.width = '20%';
+    document.querySelector('.div_general').style.width = '80%';
+
+});
+let cerrarMenu = document.querySelector('.div_general');
+
+cerrarMenu.addEventListener("mouseover", ()=>{
+
+    document.querySelector('.div_nav').style.width = '2%';
+    document.querySelector('.div_general').style.width = '98%';
+
+});
